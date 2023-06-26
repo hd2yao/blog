@@ -1,21 +1,55 @@
 package main
 
 import (
+    "log"
     "net/http"
     "time"
 
+    "blog/global"
     "blog/internal/routers"
+    "blog/pkg/setting"
 )
 
+// 2.1.0 初始化配置读取
+func init() {
+    err := setupSetting()
+    if err != nil {
+        log.Fatalf("init.setupSetting err: %v", err)
+    }
+}
+
+func setupSetting() error {
+    setting, err := setting.NewSetting()
+    if err != nil {
+        return err
+    }
+    err = setting.ReadSection("Server", &global.ServerSetting)
+    if err != nil {
+        return err
+    }
+    err = setting.ReadSection("App", &global.AppSetting)
+    if err != nil {
+        return err
+    }
+    err = setting.ReadSection("Database", &global.DatabaseSetting)
+    if err != nil {
+        return err
+    }
+
+    global.ServerSetting.ReadTimeout *= time.Second
+    global.ServerSetting.WriteTimeout *= time.Second
+    return nil
+}
+
 func main() {
-    // 1.0.0
+    // 1.0.0 初始
     //r := gin.Default()
     //r.GET("/ping", func(context *gin.Context) {
     //    context.JSON(http.StatusOK, gin.H{"message": "pong"})
     //})
     //r.Run()
 
-    // 2.0.0
+    // 2.0.0 自定义路由
     router := routers.NewPouter()
     s := &http.Server{
         Addr:           ":8080",
