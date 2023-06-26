@@ -1,9 +1,10 @@
 package main
 
 import (
-    "blog/internal/routers"
     "net/http"
     "time"
+
+    "blog/internal/routers"
 )
 
 func main() {
