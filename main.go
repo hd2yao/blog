@@ -1,6 +1,7 @@
 package main
 
 import (
+    "blog/internal/model"
     "log"
     "net/http"
     "time"
@@ -18,8 +19,13 @@ func init() {
     if err != nil {
         log.Fatalf("init.setupSetting err: %v", err)
     }
+    err = setupDBEngine()
+    if err != nil {
+        log.Fatalf("init.setupDBEngine err: %v", err)
+    }
 }
 
+// 2.1.1 初始化配置读取
 func setupSetting() error {
     setting, err := setting.NewSetting()
     if err != nil {
@@ -40,6 +46,16 @@ func setupSetting() error {
 
     global.ServerSetting.ReadTimeout *= time.Second
     global.ServerSetting.WriteTimeout *= time.Second
+    return nil
+}
+
+// 2.1.2 初始化数据库配置读取
+func setupDBEngine() error {
+    var err error
+    global.DBEngine, err = model.NewDBEngine(global.DatabaseSetting)
+    if err != nil {
+        return err
+    }
     return nil
 }
 
