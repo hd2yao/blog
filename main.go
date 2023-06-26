@@ -5,6 +5,8 @@ import (
     "net/http"
     "time"
 
+    "github.com/gin-gonic/gin"
+
     "blog/global"
     "blog/internal/routers"
     "blog/pkg/setting"
@@ -50,12 +52,24 @@ func main() {
     //r.Run()
 
     // 2.0.0 自定义路由
+    //router := routers.NewPouter()
+    //s := &http.Server{
+    //    Addr:           ":8080",
+    //    Handler:        router,
+    //    ReadTimeout:    10 * time.Second,
+    //    WriteTimeout:   10 * time.Second,
+    //    MaxHeaderBytes: 1 << 20,
+    //}
+    //s.ListenAndServe()
+
+    // 2.1.0 配置管理
+    gin.SetMode(global.ServerSetting.RunMode)
     router := routers.NewPouter()
     s := &http.Server{
-        Addr:           ":8080",
+        Addr:           ":" + global.ServerSetting.HttpPort,
         Handler:        router,
-        ReadTimeout:    10 * time.Second,
-        WriteTimeout:   10 * time.Second,
+        ReadTimeout:    global.ServerSetting.ReadTimeout,
+        WriteTimeout:   global.ServerSetting.WriteTimeout,
         MaxHeaderBytes: 1 << 20,
     }
     s.ListenAndServe()
