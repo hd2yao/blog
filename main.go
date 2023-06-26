@@ -1,7 +1,6 @@
 package main
 
 import (
-    "blog/internal/model"
     "log"
     "net/http"
     "time"
@@ -9,6 +8,7 @@ import (
     "github.com/gin-gonic/gin"
 
     "blog/global"
+    "blog/internal/model"
     "blog/internal/routers"
     "blog/pkg/setting"
 )
