@@ -77,6 +77,10 @@ func setupLogger() error {
     return nil
 }
 
+// @title 博客系统
+// @version 1.0
+// @description Go 语言编程之旅：一起用 Go 做项目
+// @termsOfService https://github.com/hd2yao/blog
 func main() {
     // 1.0.0 初始
     //r := gin.Default()
