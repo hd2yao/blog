@@ -1,17 +1,17 @@
 package main
 
 import (
-    "blog/pkg/logger"
-    "gopkg.in/natefinch/lumberjack.v2"
     "log"
     "net/http"
     "time"
 
     "github.com/gin-gonic/gin"
+    "gopkg.in/natefinch/lumberjack.v2"
 
     "blog/global"
     "blog/internal/model"
     "blog/internal/routers"
+    "blog/pkg/logger"
     "blog/pkg/setting"
 )
 
