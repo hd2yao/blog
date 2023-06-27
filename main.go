@@ -8,11 +8,11 @@ import (
     "github.com/gin-gonic/gin"
     "gopkg.in/natefinch/lumberjack.v2"
 
-    "blog/global"
-    "blog/internal/model"
-    "blog/internal/routers"
-    "blog/pkg/logger"
-    "blog/pkg/setting"
+    "github.com/hd2yao/blog/global"
+    "github.com/hd2yao/blog/internal/model"
+    "github.com/hd2yao/blog/internal/routers"
+    "github.com/hd2yao/blog/pkg/logger"
+    "github.com/hd2yao/blog/pkg/setting"
 )
 
 // 2.1.0 初始化配置读取

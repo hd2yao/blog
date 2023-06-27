@@ -3,8 +3,8 @@ package v1
 import (
     "github.com/gin-gonic/gin"
 
-    "blog/pkg/app"
-    "blog/pkg/err_code"
+    "github.com/hd2yao/blog/pkg/app"
+    "github.com/hd2yao/blog/pkg/err_code"
 )
 
 func NewArticle() Article {

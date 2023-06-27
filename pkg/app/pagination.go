@@ -1,9 +1,10 @@
 package app
 
 import (
-    "blog/global"
-    "blog/pkg/convert"
     "github.com/gin-gonic/gin"
+
+    "github.com/hd2yao/blog/global"
+    "github.com/hd2yao/blog/pkg/convert"
 )
 
 func GetPage(c *gin.Context) int {

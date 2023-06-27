@@ -1,8 +1,8 @@
 package global
 
 import (
-    "blog/pkg/logger"
-    "blog/pkg/setting"
+    "github.com/hd2yao/blog/pkg/logger"
+    "github.com/hd2yao/blog/pkg/setting"
 )
 
 var (

@@ -3,11 +3,11 @@ package model
 import (
     "fmt"
 
-    "blog/global"
-    "blog/pkg/setting"
-
     "github.com/jinzhu/gorm"
     _ "github.com/jinzhu/gorm/dialects/mysql"
+
+    "github.com/hd2yao/blog/global"
+    "github.com/hd2yao/blog/pkg/setting"
 )
 
 type Model struct {

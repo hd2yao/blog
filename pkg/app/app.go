@@ -5,7 +5,7 @@ import (
 
     "github.com/gin-gonic/gin"
 
-    "blog/pkg/err_code"
+    "github.com/hd2yao/blog/pkg/err_code"
 )
 
 type Response struct {
