@@ -6,6 +6,7 @@ import (
     "github.com/swaggo/gin-swagger/swaggerFiles"
 
     _ "github.com/hd2yao/blog/docs"
+    "github.com/hd2yao/blog/internal/middleware"
     "github.com/hd2yao/blog/internal/routers/api/v1"
 )
 
@@ -13,6 +14,7 @@ func NewPouter() *gin.Engine {
     r := gin.New()
     r.Use(gin.Logger())
     r.Use(gin.Recovery())
+    r.Use(middleware.Translations())
 
     r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
