@@ -1,4 +1,4 @@
-module blog
+module github.com/hd2yao/blog
 
 go 1.20
 
