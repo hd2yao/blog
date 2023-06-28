@@ -2,10 +2,11 @@ package service
 
 import (
     "errors"
-    "github.com/hd2yao/blog/global"
-    "github.com/hd2yao/blog/pkg/upload"
     "mime/multipart"
     "os"
+
+    "github.com/hd2yao/blog/global"
+    "github.com/hd2yao/blog/pkg/upload"
 )
 
 type FileInfo struct {
