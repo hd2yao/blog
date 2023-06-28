@@ -7,6 +7,7 @@ import (
 
     _ "github.com/hd2yao/blog/docs"
     "github.com/hd2yao/blog/internal/middleware"
+    "github.com/hd2yao/blog/internal/routers/api"
     "github.com/hd2yao/blog/internal/routers/api/v1"
 )
 
@@ -17,6 +18,9 @@ func NewPouter() *gin.Engine {
     r.Use(middleware.Translations())
 
     r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
+    upload := api.NewUpload()
+    r.POST("/upload/file", upload.UploadFile)
 
     article := v1.NewArticle()
     tag := v1.NewTag()
