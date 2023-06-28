@@ -24,7 +24,7 @@ type CreateTagRequest struct {
 type UpdateTagRequest struct {
 	ID         uint32 `json:"id" form:"id" binding:"required,gte=1"`
 	Name       string `json:"name" form:"name" binding:"min=3,max=100"`
-	State      uint8  `json:"state" form:"state" binding:"required,oneof=0 1"`
+	State      *uint8 `json:"state" form:"state" binding:"required,oneof=0 1"`
 	ModifiedBy string `json:"modified_by" form:"modified_by" binding:"required,min=2,max=100"`
 }
 
@@ -45,7 +45,7 @@ func (svc *Service) CreateTag(param *CreateTagRequest) error {
 }
 
 func (svc *Service) UpdateTag(param *UpdateTagRequest) error {
-	return svc.dao.UpdateTag(param.ID, param.Name, param.State, param.ModifiedBy)
+	return svc.dao.UpdateTag(param.ID, param.Name, *param.State, param.ModifiedBy)
 }
 
 func (svc *Service) DeleteTag(param *DeleteTagRequest) error {
