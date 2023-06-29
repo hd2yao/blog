@@ -2,8 +2,9 @@ package middleware
 
 import (
     "context"
-    "github.com/gin-gonic/gin"
     "time"
+
+    "github.com/gin-gonic/gin"
 )
 
 func ContextTimeout(t time.Duration) func(c *gin.Context) {
