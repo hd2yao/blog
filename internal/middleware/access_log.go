@@ -2,11 +2,12 @@ package middleware
 
 import (
     "bytes"
-    "github.com/hd2yao/blog/global"
-    "github.com/hd2yao/blog/pkg/logger"
     "time"
 
     "github.com/gin-gonic/gin"
+
+    "github.com/hd2yao/blog/global"
+    "github.com/hd2yao/blog/pkg/logger"
 )
 
 type AccessLogWriter struct {
