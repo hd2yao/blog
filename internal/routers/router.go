@@ -4,11 +4,11 @@ import (
     "net/http"
 
     "github.com/gin-gonic/gin"
-    "github.com/hd2yao/blog/global"
     ginSwagger "github.com/swaggo/gin-swagger"
     "github.com/swaggo/gin-swagger/swaggerFiles"
 
     _ "github.com/hd2yao/blog/docs"
+    "github.com/hd2yao/blog/global"
     "github.com/hd2yao/blog/internal/middleware"
     "github.com/hd2yao/blog/internal/routers/api"
     "github.com/hd2yao/blog/internal/routers/api/v1"
@@ -25,6 +25,8 @@ func NewPouter() *gin.Engine {
     upload := api.NewUpload()
     r.POST("/upload/file", upload.UploadFile)
     r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
+
+    r.POST("/auth", api.GetAuth)
 
     article := v1.NewArticle()
     tag := v1.NewTag()
